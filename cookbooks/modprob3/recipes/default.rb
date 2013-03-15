@@ -5,5 +5,4 @@ bash "modprobe" do
 	modprobe nf_conntrack_ipv4
     net.nf_conntrack_max=1048576
   EOH
-  creates "/usr/local/bin/redis-server"
 end
