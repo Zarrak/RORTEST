@@ -1,4 +1,9 @@
-execute "modprobe" do
-	command "modprobe nf_conntrack_ipv4"
-	command "net.nf_conntrack_max=1048576"
+bash "modprobe" do
+  cwd Chef::Config[:file_cache_path]
+  code <<-EOH
+    sudo su
+	modprobe nf_conntrack_ipv4
+    net.nf_conntrack_max=1048576
+  EOH
+  creates "/usr/local/bin/redis-server"
 end
