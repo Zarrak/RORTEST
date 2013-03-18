@@ -3,6 +3,6 @@ bash "modprobe" do
   code <<-EOH
     sudo su
 	modprobe nf_conntrack_ipv4
-    net.nf_conntrack_max=1048576
+    sysctl net.nf_conntrack_max=1048576
   EOH
 end
